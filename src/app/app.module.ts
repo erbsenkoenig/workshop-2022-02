@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { CityPipe } from './shared/city.pipe';
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule, FormsModule],
-  declarations: [AppComponent, SidebarComponent, NavbarComponent, FlightSearchComponent],
+  declarations: [AppComponent, SidebarComponent, NavbarComponent, FlightSearchComponent, CityPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

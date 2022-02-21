@@ -31,8 +31,8 @@
 <div class="grid">
   <div class="card col-xs-4 px-2" *ngFor="let flight of flights">
     <div class="content">
-      <div>From: {{ flight.from }}</div>
-      <div>To: {{ flight.to }}</div>
+      <div>From: {{ flight.from | city }}</div>
+      <div>To: {{ flight.to | city }}</div>
       <div>{{ flight.date | date: 'dd.MM.yyyy HH:mm' }}</div>
       <button class="btn btn-default" (click)="select(flight)">Select</button>
     </div>
