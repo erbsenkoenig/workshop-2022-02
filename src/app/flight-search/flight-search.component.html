@@ -29,7 +29,7 @@
 </ng-container>
 
 <div class="grid">
-  <div class="card col-xs-4 px-2" *ngFor="let flight of flights">
+  <div class="card col-xs-4 px-2" *ngFor="let flight of flights$ | async">
     <div class="content">
       <div>From: {{ flight.from | city }}</div>
       <div>To: {{ flight.to | city: 'long':'UNKNOWN' }}</div>
