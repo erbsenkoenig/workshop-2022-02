@@ -9,20 +9,8 @@ import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 
 @NgModule({
-   imports: [
-      BrowserModule,
-      HttpClientModule,
-      FormsModule
-   ],
-   declarations: [
-      AppComponent,
-      SidebarComponent,
-      NavbarComponent,
-      FlightSearchComponent
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  imports: [BrowserModule, HttpClientModule, FormsModule],
+  declarations: [AppComponent, SidebarComponent, NavbarComponent, FlightSearchComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
