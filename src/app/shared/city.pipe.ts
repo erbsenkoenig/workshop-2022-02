@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'city',
 })
 export class CityPipe implements PipeTransform {
-  transform(city: string, format: 'short' | 'long' = 'short'): string {
+  transform(city: string, format: 'short' | 'long' = 'short', defaultValue?: string): string {
     if (city === 'Berlin' && format === 'short') {
       return 'BER';
     }
@@ -21,6 +21,6 @@ export class CityPipe implements PipeTransform {
       return 'HAM';
     }
 
-    return city;
+    return defaultValue || city;
   }
 }
