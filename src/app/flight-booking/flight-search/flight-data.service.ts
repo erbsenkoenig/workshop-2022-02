@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
-import { Flight } from '../types';
+import { Flight } from '../../types';
 import { FlightService } from './flight.service';
 
 @Injectable({

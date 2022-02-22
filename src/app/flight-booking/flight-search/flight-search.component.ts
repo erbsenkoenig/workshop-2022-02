@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Flight } from '../types';
+import { Flight } from '../../types';
 import { HttpClient } from '@angular/common/http';
 import { FlightService } from './flight.service';
 import { Observable, Subscription } from 'rxjs';

@@ -3,16 +3,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { CityPipe } from './shared/city.pipe';
-import { BASE_URL } from './flight-search/constants';
+import { BASE_URL } from './flight-booking/flight-search/constants';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, FormsModule],
-  declarations: [AppComponent, SidebarComponent, NavbarComponent, FlightSearchComponent, CityPipe],
+  imports: [BrowserModule, HttpClientModule, FlightBookingModule, SharedModule],
+  declarations: [AppComponent, SidebarComponent, NavbarComponent],
   providers: [
     {
       provide: BASE_URL,
