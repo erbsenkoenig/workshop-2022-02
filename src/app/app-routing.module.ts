@@ -8,6 +8,10 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'flight-search',
+    loadChildren: () => import('./flight-booking/flight-booking.module').then((m) => m.FlightBookingModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },

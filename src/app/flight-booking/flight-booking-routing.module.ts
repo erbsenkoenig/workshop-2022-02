@@ -3,8 +3,9 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 
 const routes: Routes = [
   {
-    path: 'flight-search',
+    path: '',
     component: FlightSearchComponent,
+    pathMatch: 'full',
   },
 ];
 

@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, SharedModule, RouterModule, FlightBookingModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, SharedModule, RouterModule, AppRoutingModule],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, NotFoundComponent],
   providers: [
     {
