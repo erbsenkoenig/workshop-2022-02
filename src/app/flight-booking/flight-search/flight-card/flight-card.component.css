@@ -1,0 +1,15 @@
+.bg-blue {
+  background-color: lightsteelblue;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+h2 {
+  margin-top: 0;
+}

@@ -28,20 +28,19 @@
   </div>
 </ng-container>
 
-<div class="grid">
-  <div class="card col-xs-4 px-2" *ngFor="let flight of flights$ | async">
-    <div class="content">
-      <div>From: {{ flight.from | city }}</div>
-      <div>To: {{ flight.to | city: 'long':'UNKNOWN' }}</div>
-      <div>{{ flight.date | date: 'dd.MM.yyyy HH:mm' }}</div>
-      <button class="btn btn-default" (click)="select(flight)">Select</button>
-    </div>
+<div class="row">
+  <div class="col-xs-4 px-2" *ngFor="let flight of flights$ | async">
+    <app-flight-card
+      [selected]="basket[flight.id]"
+      [flight]="flight"
+      (selectedChange)="onSelectedChange(flight.id, $event)"
+    ></app-flight-card>
   </div>
 </div>
 
-<div class="card" *ngIf="selectedFlight">
+<div class="card">
   <div class="content">
-    <div>Selected Flight</div>
-    <div>{{ selectedFlight | json }}</div>
+    <div>Selected Flights</div>
+    <div>{{ basket | json }}</div>
   </div>
 </div>

@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{ 'bg-blue': !selected, 'bg-orange': selected }">
+  <div class="content">
+    <h2>{{ flight.from | city }} - {{ flight.to | city }}</h2>
+    <div>Flight No: {{ flight.id }}</div>
+    <div>{{ flight.date | date: 'dd.MM.yyyy HH:mm' }}</div>
+    <div class="mt-2">
+      <button *ngIf="!selected" class="btn btn-default" (click)="select(true)">Select</button>
+      <button *ngIf="selected" class="btn btn-default" (click)="select(false)">Deselect</button>
+    </div>
+  </div>
+</div>

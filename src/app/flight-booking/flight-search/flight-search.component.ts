@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Flight } from '../../types';
-import { HttpClient } from '@angular/common/http';
 import { FlightService } from './flight.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -14,11 +13,11 @@ export class FlightSearchComponent implements OnDestroy {
   to: string;
 
   flights: Flight[] = [];
-  selectedFlight: Flight | null = null;
+  basket: { [key: number]: boolean } = {};
 
   flights$: Observable<Flight[]>;
 
-  private subs: Subscription[];
+  private subs: Subscription[] = [];
 
   constructor(private flightService: FlightService) {}
 
@@ -32,8 +31,8 @@ export class FlightSearchComponent implements OnDestroy {
     );
   }
 
-  select(flight: Flight) {
-    this.selectedFlight = flight;
+  onSelectedChange(flightId: number, value: boolean) {
+    this.basket[flightId] = value;
   }
 
   ngOnDestroy() {
