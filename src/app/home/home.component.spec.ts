@@ -70,5 +70,19 @@ describe('HomeComponent', () => {
     expect(elem.nativeElement.textContent).toContain('Counter: 1');
   });
 
-  it('should not decrease below 0', () => {});
+  it('should not decrease below 0', () => {
+    fixture.detectChanges();
+
+    expect(component.count).toEqual(0);
+
+    const decreaseButton: DebugElement = fixture.debugElement.query(By.css('[data-testid="btn-decrease"]'));
+    decreaseButton.triggerEventHandler('click', null);
+
+    expect(component.count).toEqual(0);
+
+    fixture.detectChanges(); // NOT TRIGGER ON INIT JUST UPDATES VALUE REFERENCES FROM COMPONENT IN DOM
+
+    const elem: DebugElement = fixture.debugElement.query(By.css('p'));
+    expect(elem.nativeElement.textContent).toContain('Counter: 0');
+  });
 });
