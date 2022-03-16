@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { FlightService } from './flight.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -37,9 +37,11 @@ describe('FlightService', () => {
       result = r;
     });
 
-    const request = testingController.expectOne('BASE_URL/flight?from=FROM&to=TO');
-    request.flush('FLIGHTS');
+    tick();
 
-    expect(result).toEqual('FLIGHTS');
+    const request = testingController.expectOne('BASE_URL/flight?from=FROM&to=TO');
+    request.flush([{ from: 'FROM', to: 'TO' }]);
+
+    expect(result).toEqual([{ from: 'FROM', to: 'TO', foo: 'FOO' }]);
   }));
 });

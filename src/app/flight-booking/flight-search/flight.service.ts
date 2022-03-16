@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Flight } from '../../types';
 import { BASE_URL, BASE_URL_WITH_NEW_SCOPING } from './constants';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class FlightService {
@@ -23,6 +24,10 @@ export class FlightService {
 
     const headers = { Accept: 'application/json' };
 
-    return this.httpClient.get<Flight[]>(url, { params, headers });
+    return this.httpClient.get<Flight[]>(url, { params, headers }).pipe(
+      map((flights) => {
+        return flights.map((flight) => ({ ...flight, foo: 'FOO' }));
+      })
+    );
   }
 }
