@@ -3,14 +3,30 @@
     <h2>Flight Search</h2>
   </div>
   <div class="content">
-    <form>
+    <form [formGroup]="form">
       <div class="form-group">
-        <label>From</label>
-        <input class="form-control" name="from" [(ngModel)]="from" type="text" />
+        <app-from-input [searchFormGroup]="form"></app-from-input>
       </div>
       <div class="form-group">
         <label>To</label>
-        <input class="form-control" name="to" [(ngModel)]="to" type="text" />
+        <input class="form-control" formControlName="to" type="text" />
+        <div *ngIf="form.get('to').invalid && form.get('to').touched">
+          <div *ngIf="form.get('to').errors['required']">Field is required</div>
+          <div *ngIf="form.get('to').errors['minlength']">
+            Field needs to have at least {{ form.get('to').errors['minlength']['requiredLength'] }} characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">FormGroup value: {{ form.value | json }}</div>
+      <div>FormGroup errors: {{ form.errors | json }} | FormGroup invalid: {{ form.invalid }}</div>
+      <div>
+        FormControl 'from' errors: {{ form.get('from').errors | json }} | FormControl 'from' invalid:
+        {{ form.get('from').invalid }}
+      </div>
+      <div>
+        FormControl 'to' errors: {{ form.get('to').errors | json }} | FormControl 'to' invalid:
+        {{ form.get('to').invalid }}
       </div>
 
       <div class="form-group">
